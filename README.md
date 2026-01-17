@@ -4,7 +4,7 @@ Welcome to my repository of Retrieval-Augmented Generation (RAG) projects.
 
 ## Projects
 
-### 1. [Multimodal-RAG](./multimodal-rag)
+### 1. [Multimodal-RAG](./Multimodal-RAG)
 A powerful video assistant that allows you to **chat with lecture videos**.
 
 #### Key Features:
@@ -14,4 +14,4 @@ A powerful video assistant that allows you to **chat with lecture videos**.
 - 🤖 **Local LLM**: Privacy-first chat using Ollama (Mistral/Llama3).
 - 🎨 **Modern UI**: Beautiful Streamlit interface with dark mode support.
 
-[👉 **Go to Multimodal-RAG Project**](./multimodal-rag)
+[👉 **Go to Multimodal-RAG Project**](./Multimodal-RAG)
