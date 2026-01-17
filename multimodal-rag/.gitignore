@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+**/.DS_Store
+
+# Environment variables
+.env
+
+# Data directories (generated during runtime)
+# IMPORTANT: Ignore all data folder contents but keep the folder structure if needed (via .gitkeep potentially, but here we just ignore)
+data/
+*.mp4
+*.wav
+*.jpg
+*.png
+*.part
+*.ytdl
+
+# Model caches
+.cache/
+models/
+*.pt
+*.pth
+
+# Streamlit
+.streamlit/config.toml
+# Note: Keeping .streamlit/secrets.toml ignored if it existed (it doesn't yet)
+.streamlit/secrets.toml
+
+# Logs
+*.log
+npm-debug.log*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ChromaDB
+chroma_db/
+*.db
+*.sqlite
+*.sqlite3
