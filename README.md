@@ -15,3 +15,19 @@ A powerful video assistant that allows you to **chat with lecture videos**.
 - 🎨 **Modern UI**: Beautiful Streamlit interface with dark mode support.
 
 [👉 **Go to Multimodal-RAG Project**](./Multimodal-RAG)
+
+---
+
+### 2. [Synapse](./Synapse)
+**A Graph RAG System for Investigative Intelligence.**
+
+Synapse combines **Knowledge Graphs** with **LLMs** to enable relationship-based document analysis.
+
+#### Key Features:
+- 🕵️ **Investigative Graph**: Automatically extracts entities (People, Orgs) and builds a Neo4j graph.
+- ⚡ **Local Intelligence**: Powered by **Ollama** (Gemma 3) and Hugging Face Embeddings.
+- 🔗 **Relationship Discovery**: "How is company X connected to person Y?"
+- 📊 **Interactive Visualization**: Explore connections using a dynamic graph UI.
+- 🚀 **Production Ready**: Built with FastAPI, LangChain, and Neo4j.
+
+[👉 **Go to Synapse Project**](./Synapse)
