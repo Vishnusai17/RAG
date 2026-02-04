@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapse - AI Knowledge Graph</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Vis.js for graph visualization -->
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <!-- Marked.js for markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3" />
+                    <circle cx="5" cy="6" r="2" />
+                    <circle cx="19" cy="6" r="2" />
+                    <circle cx="5" cy="18" r="2" />
+                    <circle cx="19" cy="18" r="2" />
+                    <line x1="9.5" y1="10" x2="6.5" y2="7.5" />
+                    <line x1="14.5" y1="10" x2="17.5" y2="7.5" />
+                    <line x1="9.5" y1="14" x2="6.5" y2="16.5" />
+                    <line x1="14.5" y1="14" x2="17.5" y2="16.5" />
+                </svg>
+                <h1>Synapse</h1>
+            </div>
+            <div class="subtitle">AI Knowledge Graph</div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Query Section -->
+            <section class="query-section">
+                <div class="query-container">
+                    <div class="query-input-wrapper">
+                        <input type="text" id="queryInput" class="query-input"
+                            placeholder="Ask a question... e.g., 'How is Person A connected to Company B?'">
+                        <button id="queryBtn" class="query-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            Search
+                        </button>
+                    </div>
+                    <div class="query-examples">
+                        <span>Try:</span>
+                        <button class="example-btn" onclick="setQuery('Who sent emails to Ken Lay?')">Who sent emails to
+                            Ken Lay?</button>
+                        <button class="example-btn" onclick="setQuery('How is Person A connected to Company B?')">Find
+                            connections</button>
+                        <button class="example-btn" onclick="setQuery('What topics were discussed in emails?')">Email
+                            topics</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results and Graph Section -->
+            <div class="content-grid">
+                <!-- Answer Panel -->
+                <section class="answer-panel">
+                    <div class="panel-header">
+                        <h2>Answer</h2>
+                        <span id="queryType" class="query-badge"></span>
+                    </div>
+                    <div id="answerContent" class="answer-content">
+                        <div class="placeholder-text">
+                            Enter a question above to search the knowledge graph
+                        </div>
+                    </div>
+
+                    <!-- Sources -->
+                    <div id="sourcesSection" class="sources-section hidden">
+                        <h3>Sources</h3>
+                        <div id="sourcesList" class="sources-list"></div>
+                    </div>
+                </section>
+
+                <!-- Graph Panel -->
+                <section class="graph-panel">
+                    <div class="panel-header">
+                        <h2>Knowledge Graph</h2>
+                        <div class="graph-controls">
+                            <button id="refreshGraphBtn" class="icon-btn" title="Refresh Graph">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 4 23 10 17 10" />
+                                    <polyline points="1 20 1 14 7 14" />
+                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                                </svg>
+                            </button>
+                            <button id="fullscreenBtn" class="icon-btn" title="Fullscreen">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <polyline points="9 21 3 21 3 15" />
+                                    <line x1="21" y1="3" x2="14" y2="10" />
+                                    <line x1="3" y1="21" x2="10" y2="14" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="graphContainer" class="graph-container"></div>
+
+                    <!-- Graph Legend -->
+                    <div class="graph-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot person"></span>
+                            <span>Person</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot organization"></span>
+                            <span>Organization</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot location"></span>
+                            <span>Location</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="panel-header">
+                    <h2>Ingest Documents</h2>
+                </div>
+                <div class="upload-container">
+                    <div id="dropzone" class="dropzone">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="17 8 12 3 7 8" />
+                            <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                        <p>Drag & drop files here or <label for="fileInput" class="browse-link">browse</label></p>
+                        <p class="file-types">Supports: PDF, TXT, EML, HTML</p>
+                        <input type="file" id="fileInput" multiple accept=".pdf,.txt,.eml,.html,.htm" hidden>
+                    </div>
+                    <div id="uploadStatus" class="upload-status hidden"></div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-value" id="docCount">-</div>
+                    <div class="stat-label">Documents Uploaded</div>
+                </div>
+            </section>
+        </main>
+
+
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

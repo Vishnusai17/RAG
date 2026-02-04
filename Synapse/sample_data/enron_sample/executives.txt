@@ -1,0 +1,49 @@
+Enron Corporation - Key Executives Summary
+
+LEADERSHIP TEAM:
+
+Kenneth Lay (Ken Lay)
+- Title: Chairman and CEO
+- Email: kenneth.lay@enron.com
+- Notes: Founded Enron in 1985 through merger of Houston Natural Gas 
+  and InterNorth. Based in Houston, Texas.
+
+Jeffrey Skilling (Jeff Skilling)
+- Title: President and COO (later CEO)
+- Email: jeff.skilling@enron.com
+- Reports to: Kenneth Lay
+- Notes: Joined from McKinsey & Company. Architect of Enron's 
+  asset-light strategy.
+
+Andrew Fastow (Andy Fastow)
+- Title: Chief Financial Officer
+- Email: andrew.fastow@enron.com
+- Reports to: Jeffrey Skilling
+- Notes: Created SPE structures including LJM partnerships.
+
+BUSINESS UNIT LEADERS:
+
+Rebecca Mark
+- Title: Vice Chairman, Enron International
+- Email: rebecca.mark@enron.com
+- Notes: Led international power plant development.
+
+Lou Pai
+- Title: CEO, Enron Energy Services (EES)
+- Notes: Responsible for retail energy business.
+
+John Lavorato
+- Title: Head of Trading, Enron North America
+- Notes: Oversaw electricity and natural gas trading.
+
+EXTERNAL RELATIONSHIPS:
+
+Arthur Andersen (Auditor)
+- Contact: David Duncan (Lead Audit Partner)
+- Location: Houston office
+
+Merrill Lynch (Investment Bank)
+- Relationship: Barge deal, LJM investments
+
+JPMorgan Chase (Bank)
+- Relationship: Prepay transactions, credit facilities
